@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // extends: ["./inner_project"],
+  extends: ["./inner_project"],
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
 
@@ -22,6 +22,9 @@ export default defineNuxtConfig({
     '/fetch': {ssr: true, prerender: true}, // Pure CSR, no prerendering
     '/fruit/**': {ssr: true},
     '/fruit': {ssr: false}, // SSG
+  },
+  generate: {
+    exclude: ['/veggie', '/Veggie'],
   },
 
   modules: ['@nuxt/content']
