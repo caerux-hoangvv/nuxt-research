@@ -3,7 +3,9 @@ export default defineNuxtConfig({
     extends: ["./inner_project"],
     compatibilityDate: "2024-11-01",
     devtools: { enabled: true },
-
+    app: {
+      baseURL: '/nuxt-research/',
+    },
     vite: {
         css: {
             preprocessorOptions: {
@@ -16,7 +18,6 @@ export default defineNuxtConfig({
             },
         },
     },
-
     routeRules: {
         "/": { ssr: true }, // SSR
         "/fetch": { ssr: true, prerender: true }, // Pure CSR, no prerendering
