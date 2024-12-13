@@ -13,10 +13,17 @@ definePageMeta({
         <nav>
             <NuxtLink to="/">Home</NuxtLink>
             <NuxtLink to="/fruit/">Fruit</NuxtLink>
+            <template v-if="route.params.id === 'apple'">
+                <NuxtLink to="/fruit/banana">Banana</NuxtLink> 
+            </template>
         </nav>
         <!-- Content from Markdown file -->
-        <div class="content" v-if="route.params.id == 'hello'">
-            <ContentDoc path="/hello" />
+        <div class="content">
+            <ContentDoc :path="route.params.id" >
+                <template #not-found>
+                    <h1>This page has no content</h1>
+                </template>
+            </ContentDoc>
         </div>
     </div>
 </template>

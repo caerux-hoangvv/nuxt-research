@@ -25,7 +25,13 @@ const navigate = () => {
         <h2>navigateTo()</h2>
         <p>/fruit/<input type="text" v-model="inputValue" /> <button @click="navigate()">Navigate</button></p>
 
-        <button @click="$demo()">Test Plugins Demo</button>
+        <button @click="$demo('Worked')">Test Plugins Demo</button>
+        <ul class="nav_guide">
+            <li>Navigate to /fruit for more navigation demo</li>
+            <li>Navigate to /Veggie for NuxtLayer demo</li>
+            <li>Navigate to /fetch for fetching demo</li>
+            <li>Navigate to /about for page group demo</li>
+        </ul>
     </div>
 </template>
 
@@ -35,6 +41,9 @@ const navigate = () => {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+    button, a   {
+        cursor: pointer;
+    }
 }
 nav {
     background-color: #f0f0f0;
@@ -45,5 +54,8 @@ nav {
     width: fit-content;
     margin: 10px auto;
     padding: 10px;
+}
+.nav_guide {
+    list-style: none;
 }
 </style>

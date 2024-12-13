@@ -3,6 +3,15 @@ definePageMeta({
     title: "Iam Fruit Page",
     class: "fruit-page",
 });
+// Constants
+const inputValue = ref("");
+const { $demo } = useNuxtApp();
+// Methods
+const navigate = () => {
+    navigateTo({
+        path: `/fruit/${inputValue.value}`,
+    });
+};
 </script>
 <template>
     <div id="app">
@@ -16,6 +25,11 @@ definePageMeta({
         <NuxtIsland name="DemoSSR" />
         <h2>navigateTo()</h2>
         <p>/fruit/<input type="text" v-model="inputValue" /> <button @click="navigate()">Navigate</button></p>
+        <ul class="nav_guide">
+            <li>Navigate to /fruit/hello for MD NuxtContent demo</li>
+            <li>Navigate to /fruit/[any] for NuxtContentEmpty demo</li>
+            <li>Navigate to /fruit/apple then navigate to /fruit/banana for middleware demo</li>
+        </ul>
     </div>
 </template>
 
@@ -28,5 +42,8 @@ definePageMeta({
 }
 h2 {
     color: seagreen;
+}
+ul.nav_guide {
+    list-style: none
 }
 </style>
